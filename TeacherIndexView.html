@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>学生列表</title>
+    <title>教师列表</title>
     <style type="text/css">
         table{
             margin:0 auto;
@@ -22,33 +22,31 @@
 <?php
 include "menu.html";
 ?>
-
 <div style="text-align: center;margin-bottom: 10px;">
-    <h3>学生信息列表</h3>
+    <h3>教师信息列表</h3>
 </div>
 <table cellpadding="5" cellspacing="0" border="1" rules="all">
     <tr>
-        <th>学号</th>
+        <th>教职工号</th>
         <th>姓名</th>
         <th>性别</th>
-        <th>出生日期</th>
         <th>专业</th>
+        <th>职称</th>
         <th>电话</th>
+        <th>邮箱</th>
         <th>操作</th>
     </tr>
     <?php
     foreach ($arrs as $arr) {
     ?>
     <tr>
-        <td><?php echo $arr['no']; ?></td>
+        <td><?php echo $arr['tno']; ?></td>
         <td><?php echo $arr['name']; ?></td>
         <td><?php echo $arr['sex']; ?></td>
-        <td><?php
-            if($arr['birthday'])
-                echo date('Y-m-d',$arr['birthday']);
-            ?></td>
         <td><?php echo $arr['major']; ?></td>
+        <td><?php echo $arr['ranks']; ?></td>
         <td><?php echo $arr['phone']; ?></td>
+        <td><?php echo $arr['email']; ?></td>
         <td><a href="#">修改</a>|<a href="#" onclick="confirmDel(<?php echo $arr['id']; ?>)">删除</a></td>
     </tr>
     <?php
