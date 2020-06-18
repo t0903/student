@@ -10,6 +10,13 @@
             text-align: center;
         }
     </style>
+    <script type="text/javascript">
+        function confirmDel(id) {
+            if(window.confirm('确定要删除？')){
+                location.href = '?ac=delete&id=' + id;
+            }
+        }
+    </script>
 </head>
 <body>
 <div style="text-align: center;margin-bottom: 10px;">
@@ -38,7 +45,7 @@
             ?></td>
         <td><?php echo $arr['major']; ?></td>
         <td><?php echo $arr['phone']; ?></td>
-        <td><a href="#">修改</a>|<a href="#">删除</a></td>
+        <td><a href="#">修改</a>|<a href="#" onclick="confirmDel(<?php echo $arr['id']; ?>)">删除</a></td>
     </tr>
     <?php
     }
