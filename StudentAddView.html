@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .center{
+            text-align: center;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+<?php
+include "menu.html";
+?>
+<div class="center">
+    <h3 class="center">添加学生信息</h3>
+    <a href="?ac=index">返回</a>
+</div>
+<form action="?ac=insert" method="post">
+    <table align="center" border="1" cellpadding="5" cellspacing="0" width="500px">
+        <tr>
+            <td width="30%" align="right">学号：</td>
+            <td><input type="text" name="no" required="true" /></td>
+        </tr>
+        <tr>
+            <td align="right">姓名：</td>
+            <td><input type="text" name="name" required="true" /></td>
+        </tr>
+        <tr>
+            <td align="right">性别：</td>
+            <td>
+                <input type="radio" value="男" name="sex" checked="true" />男
+                <input type="radio" value="女" name="sex" />女
+            </td>
+        </tr>
+        <tr>
+            <td align="right">出生日期：</td>
+            <td><input type="date" name="birth" /></td>
+        </tr>
+        <tr>
+            <td align="right">专业：</td>
+            <td>
+                <input type="text" name="major" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">电话：</td>
+            <td>
+                <input type="text" name="phone" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="提交" />
+                <input type="reset" value="重置" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
