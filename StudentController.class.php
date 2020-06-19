@@ -1,8 +1,7 @@
 <?php
-//包含模型工厂
-require_once 'FactoryModel.class.php';
+require_once 'BaseController.class.php';
 
-final class StudentController{
+final class StudentController extends BaseController {
     //创建模型
     private $model;
 
@@ -22,6 +21,12 @@ final class StudentController{
         include 'StudentAddView.html';
     }
 
+    public function edit(){
+        $id = $_GET['id'];
+        $student = $this -> model -> get($id);
+        include 'StudentEditView.html';
+    }
+
     public function insert(){
         $data['no'] = $_POST['no'];
         $data['name'] = $_POST['name'];
@@ -31,26 +36,34 @@ final class StudentController{
         $data['phone'] = $_POST['phone'];
 
         if($this -> model -> insert($data)){
-            echo "<h3>记录添加成功！</h3>";
-            header("refresh:3;url=?");
-            exit();
+            $this -> jump("记录添加成功！");
         }else{
-            echo "<h3>记录添加失败！</h3>";
-            header("refresh:3;url=?");
-            exit();
+            $this -> jump("记录添加失败！");
+        }
+    }
+
+    public function update(){
+        $id = $_POST['id'];
+        $data['no'] = $_POST['no'];
+        $data['name'] = $_POST['name'];
+        $data['sex'] = $_POST['sex'];
+        $data['birthday'] = strtotime($_POST['birth']);
+        $data['major'] = $_POST['major'];
+        $data['phone'] = $_POST['phone'];
+
+        if($this -> model -> update($id,$data)){
+            $this -> jump("记录修改成功！");
+        }else{
+            $this -> jump("记录修改失败！");
         }
     }
 
     public function delete(){
         $id = $_GET['id'];
         if($this -> model -> delete($id)){
-            echo "<h3>id={$id}的学生记录删除成功！</h3>";
-            header("refresh:3;url=?");
-            exit();
+            $this -> jump("id={$id}的学生记录删除成功！");
         }else{
-            echo "<h3>id={$id}的学生记录删除失败！</h3>";
-            header("refresh:3;url=?");
-            exit();
+            $this -> jump("id={$id}的学生记录删除失败！");
         }
     }
 }

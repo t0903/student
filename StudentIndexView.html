@@ -50,7 +50,7 @@ include "menu.html";
             ?></td>
         <td><?php echo $arr['major']; ?></td>
         <td><?php echo $arr['phone']; ?></td>
-        <td><a href="#">修改</a>|<a href="#" onclick="confirmDel(<?php echo $arr['id']; ?>)">删除</a></td>
+        <td><a href="?ac=edit&id=<?php echo $arr['id']; ?>">修改</a>|<a href="#" onclick="confirmDel(<?php echo $arr['id']; ?>)">删除</a></td>
     </tr>
     <?php
     }

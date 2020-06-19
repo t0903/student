@@ -1,8 +1,7 @@
 <?php
-//包含模型工厂
-require_once 'FactoryModel.class.php';
+require_once 'BaseController.class.php';
 
-final class TeacherController{
+final class TeacherController extends BaseController{
     //创建模型
     private $model;
 
@@ -21,13 +20,9 @@ final class TeacherController{
     public function delete(){
         $id = $_GET['id'];
         if($this -> model -> delete($id)){
-            echo "<h3>id={$id}的教师记录删除成功！</h3>";
-            header("refresh:3;url=?");
-            exit();
+            $this ->jump("id={$id}的教师记录删除成功！");
         }else{
-            echo "<h3>id={$id}的教师记录删除失败！</h3>";
-            header("refresh:3;url=?");
-            exit();
+            $this -> jump("id={$id}的教师记录删除失败！");
         }
     }
 }
