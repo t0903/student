@@ -1,6 +1,4 @@
 <?php
-require_once 'Db.class.php';
-
 //实现抽象基础模型类
 abstract class BaseModel
 {

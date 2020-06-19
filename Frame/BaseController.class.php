@@ -1,7 +1,4 @@
 <?php
-//包含模型工厂
-require_once 'FactoryModel.class.php';
-
 abstract class BaseController
 {
     protected function jump($msg, $url= '?', $time = 3){

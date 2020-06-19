@@ -12,50 +12,43 @@
 </head>
 <body>
 <?php
-include "menu.html";
+include "./View/menu.html";
 ?>
 <div class="center">
-    <h3 class="center">修改学生信息</h3>
-    <a href="?ac=index">返回</a>
+    <h3 class="center">添加学生信息</h3>
+    <a href="?c=Student&a=index">返回</a>
 </div>
-<form action="?ac=update" method="post">
+<form action="?c=Student&a=insert" method="post">
     <table align="center" border="1" cellpadding="5" cellspacing="0" width="500px">
         <tr>
             <td width="30%" align="right">学号：</td>
-            <td>
-                <input type="hidden" name="id" value="<?php echo $student['id'];?>"/>
-                <input type="text" name="no" value="<?php echo $student['no'];?>" required="true" />
-            </td>
+            <td><input type="text" name="no" required="true" /></td>
         </tr>
         <tr>
             <td align="right">姓名：</td>
-            <td><input type="text" name="name" value="<?php echo $student['name'];?>" required="true" /></td>
+            <td><input type="text" name="name" required="true" /></td>
         </tr>
         <tr>
             <td align="right">性别：</td>
             <td>
-                <input type="radio" <?php if($student['sex'] == '男') echo "checked='true'"; ?> value="男" name="sex"> 男
-                <input type="radio" <?php if($student['sex'] == '女') echo "checked='true'"; ?> value="女" name="sex"> 女
+                <input type="radio" value="男" name="sex" checked="true" />男
+                <input type="radio" value="女" name="sex" />女
             </td>
         </tr>
         <tr>
             <td align="right">出生日期：</td>
-            <td>
-                <input class="form-control" value="<?php
-            if($student['birthday'])
-            echo date('Y-m-d',$student['birthday']);?>" type="date" name="birth">
-            </td>
+            <td><input type="date" name="birth" /></td>
         </tr>
         <tr>
             <td align="right">专业：</td>
             <td>
-                <input type="text" name="major" value="<?php echo $student['major'];?>" />
+                <input type="text" name="major" />
             </td>
         </tr>
         <tr>
             <td align="right">电话：</td>
             <td>
-                <input type="text" name="phone" value="<?php echo $student['phone'];?>" />
+                <input type="text" name="phone" />
             </td>
         </tr>
         <tr>

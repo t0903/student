@@ -1,6 +1,4 @@
 <?php
-require_once 'BaseModel.class.php';
-
 class TeacherModel extends BaseModel
 {
     public function fetchAll(){
