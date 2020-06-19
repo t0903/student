@@ -1,14 +1,8 @@
 <?php
-require_once 'Db.class.php';
+require_once 'BaseModel.class.php';
 
-class StudentModel
+class StudentModel extends BaseModel
 {
-    private $db;
-    public function __construct()
-    {
-        $config = ['db_name' => 'student'];
-        $this -> db = Db::getInstance($config);
-    }
 
     public function fetchAll(){
         $sql = "select * from student order by id desc";
