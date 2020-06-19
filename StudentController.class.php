@@ -59,12 +59,4 @@ $ac = isset($_GET['ac']) ? $_GET['ac'] : 'index';
 
 $controller = new StudentController();
 
-if($ac == 'index'){
-    $controller -> index();
-}elseif($ac == 'delete'){
-    $controller -> delete();
-}elseif($ac == 'add'){
-    $controller -> add();
-}elseif($ac == 'insert'){
-    $controller -> insert();
-}
+$controller -> $ac();

@@ -36,8 +36,4 @@ $ac = isset($_GET['ac']) ? $_GET['ac'] : 'index';
 
 $controller = new TeacherController();
 
-if($ac == 'index'){
-    $controller -> index();
-}elseif($ac == 'delete'){
-    $controller -> delete();
-}
+$controller -> $ac();
