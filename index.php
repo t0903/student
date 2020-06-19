@@ -1,2 +1,2 @@
 <?php
-header("location:./StudentController.php");
+header("location:./StudentController.class.php");
