@@ -1,11 +1,11 @@
 <?php
-//包含模型
-require_once 'StudentModel.class.php';
+//包含模型工厂
+require_once 'FactoryModel.class.php';
 
 $ac = isset($_GET['ac']) ? $_GET['ac'] : 'index';
 
 //创建模型
-$model = new StudentModel();
+$model = FactoryModel::getInstance('StudentModel');
 
 if($ac == 'index'){
     //获取数据
