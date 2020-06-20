@@ -12,17 +12,17 @@ final class StudentController extends BaseController {
         //获取数据
         $arrs = $this -> model -> fetchAll();
         //包含首页视图
-        include "./App/Admin/View/Student/index.html";
+        include VIEW_PATH."index.html";
     }
 
     public function add(){
-        include './App/Admin/View/Student/add.html';
+        include VIEW_PATH."add.html";
     }
 
     public function edit(){
         $id = $_GET['id'];
         $student = $this -> model -> get($id);
-        include './App/Admin/View/Student/edit.html';
+        include VIEW_PATH."edit.html";
     }
 
     public function insert(){

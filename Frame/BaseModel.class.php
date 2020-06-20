@@ -6,7 +6,6 @@ abstract class BaseModel
 
     public function __construct()
     {
-        $config = ['db_name' => 'student'];
-        $this -> db = Db::getInstance($config);
+        $this -> db = Db::getInstance();
     }
 }

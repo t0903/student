@@ -13,13 +13,13 @@ class Db
     private $charset;
     private $link;
     
-    private function __construct($config = array())
+    private function __construct()
     {
-        $this->db_host = isset($config['db_host']) ? $config['db_host'] : 'localhost';
-        $this->db_user = isset($config['db_user']) ? $config['db_user'] : "root";
-        $this->db_pass = isset($config['db_pass']) ? $config['db_pass'] : "root";
-        $this->db_name = isset($config['db_name']) ? $config['db_name'] : "test";
-        $this->charset = isset($config['charset']) ? $config['charset'] : "utf8";
+        $this->db_host = $GLOBALS['config']['db_host'];
+        $this->db_user = $GLOBALS['config']['db_user'];
+        $this->db_pass = $GLOBALS['config']['db_pass'];
+        $this->db_name = $GLOBALS['config']['db_name'];
+        $this->charset = $GLOBALS['config']['charset'];
 
         $this->connectDb();
         $this->selectDb();
@@ -46,9 +46,9 @@ class Db
 
     private function __clone(){}
 
-    public static function getInstance($config = array()){
+    public static function getInstance(){
         if(!self::$obj instanceof self){
-            self::$obj = new self($config);
+            self::$obj = new self();
         }
 
         return self::$obj;

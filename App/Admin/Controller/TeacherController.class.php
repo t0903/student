@@ -12,7 +12,7 @@ final class TeacherController extends BaseController{
         //获取数据
         $arrs = $this -> model -> fetchAll();
         //包含首页视图
-        include './App/Admin/View/Teacher/index.html';
+        include VIEW_PATH."index.html";
     }
 
     public function delete(){
