@@ -12,17 +12,17 @@ final class StudentController extends BaseController {
         //获取数据
         $arrs = $this -> model -> fetchAll();
         //包含首页视图
-        include './View/Student/index.html';
+        include "./App/Admin/View/Student/index.html";
     }
 
     public function add(){
-        include './View/Student/add.html';
+        include './App/Admin/View/Student/add.html';
     }
 
     public function edit(){
         $id = $_GET['id'];
         $student = $this -> model -> get($id);
-        include './View/Student/edit.html';
+        include './App/Admin/View/Student/edit.html';
     }
 
     public function insert(){
@@ -34,9 +34,9 @@ final class StudentController extends BaseController {
         $data['phone'] = $_POST['phone'];
 
         if($this -> model -> insert($data)){
-            $this -> jump("记录添加成功！",'?c=Student');
+            $this -> jump("记录添加成功！",'?p=Admin&c=Student');
         }else{
-            $this -> jump("记录添加失败！",'?c=Student');
+            $this -> jump("记录添加失败！",'?p=Admin&c=Student');
         }
     }
 
@@ -52,18 +52,18 @@ final class StudentController extends BaseController {
             $data['birthday'] = strtotime($_POST['birth']);
 
         if($this -> model -> update($id,$data)){
-            $this -> jump("记录修改成功！",'?c=Student');
+            $this -> jump("记录修改成功！",'?p=Admin&c=Student');
         }else{
-            $this -> jump("记录修改失败！",'?c=Student');
+            $this -> jump("记录修改失败！",'?p=Admin&c=Student');
         }
     }
 
     public function delete(){
         $id = $_GET['id'];
         if($this -> model -> delete($id)){
-            $this -> jump("id={$id}的学生记录删除成功！",'?c=Student');
+            $this -> jump("id={$id}的学生记录删除成功！",'?p=Admin&c=Student');
         }else{
-            $this -> jump("id={$id}的学生记录删除失败！",'?c=Student');
+            $this -> jump("id={$id}的学生记录删除失败！",'?p=Admin&c=Student');
         }
     }
 }

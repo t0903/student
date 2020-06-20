@@ -12,13 +12,13 @@
 </head>
 <body>
 <?php
-include "./View/menu.html";
+include "./App/Admin/View/Public/menu.html";
 ?>
 <div class="center">
     <h3 class="center">修改学生信息</h3>
-    <a href="?c=Student&a=index">返回</a>
+    <a href="?p=Admin&c=Student&a=index">返回</a>
 </div>
-<form action="?c=Student&a=update" method="post">
+<form action="?p=Admin&c=Student&a=update" method="post">
     <table align="center" border="1" cellpadding="5" cellspacing="0" width="500px">
         <tr>
             <td width="30%" align="right">学号：</td>

@@ -12,15 +12,15 @@ final class TeacherController extends BaseController{
         //获取数据
         $arrs = $this -> model -> fetchAll();
         //包含首页视图
-        include './View/Teacher/index.html';
+        include './App/Admin/View/Teacher/index.html';
     }
 
     public function delete(){
         $id = $_GET['id'];
         if($this -> model -> delete($id)){
-            $this ->jump("id={$id}的教师记录删除成功！",'?c=Teacher');
+            $this ->jump("id={$id}的教师记录删除成功！",'?p=Admin&c=Teacher');
         }else{
-            $this -> jump("id={$id}的教师记录删除失败！",'?c=Teacher');
+            $this -> jump("id={$id}的教师记录删除失败！",'?p=Admin&c=Teacher');
         }
     }
 }
